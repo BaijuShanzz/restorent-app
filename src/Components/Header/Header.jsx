@@ -5,6 +5,7 @@ import { Box,Typography } from "@mui/material";
 // importing styled component for customising mui component in manual
 import { styled } from '@mui/system';
 
+import CustomButton from '../CustomButton/CustomButton';
 function Header() {
     // creating navigation links
     const navTitles = [{
@@ -48,7 +49,7 @@ const NavBarLink = styled(Typography)(() =>({
     <Box>
         <Box>
             {/* set the customised component */}
-            <NavBarLinksBox>
+            <NavBarLinksBox variant="body2">
                 {
                     // iterting the nav links with help of map function
                     navTitles.map((item,index)=>(
@@ -60,7 +61,12 @@ const NavBarLink = styled(Typography)(() =>({
             </NavBarLinksBox>
         </Box>
         <Box>
+        <NavBarLink variant="body2">
+            Sign up
+        </NavBarLink>
+        <CustomButton backgroundColor="#0F1B4C" color="#fff" buttonText="Register"/>
         </Box>
+        
     </Box>
     </>
   )
