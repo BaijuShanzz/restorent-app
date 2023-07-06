@@ -18,7 +18,7 @@ const CustomButton = ({
         borderRadius: "7px",
         textTransform: "none",
         display: "block",
-        border: "1px solid transparent",
+        border: "2px solid transparent",
         '&:hover':{
             backgroundColor: color,
             color: backgroundColor,

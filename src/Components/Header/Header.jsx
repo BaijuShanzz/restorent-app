@@ -1,13 +1,31 @@
 import React from "react";
+import { useState } from "react"; 
 // importing material ui components
-import { Box, Typography } from "@mui/material";
-
+import { Box, Typography } from "@mui/material"; 
 // importing styled component for customising mui component in manual
 import { styled } from "@mui/system";
-
+import TemporaryDrawer from "../Sidebar/Sidebar";
 import CustomButton from "../CustomButton/CustomButton";
 import logoImg from "../../assets/logo.png";
+
+import MenuIcon from "@mui/icons-material/Menu";
+
+
+
 function Header() {
+  
+  const [mobileMenu, setMobileMenu] = useState({
+    left: false,
+  });
+
+  const toggleDrawer = (anchor, open) => (event) => {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
+    }
+
+    setMobileMenu({ ...mobileMenu, [anchor]: open });
+  };
+  
   // creating navigation links
   const navTitles = [
     {
@@ -15,12 +33,16 @@ function Header() {
       display: "Home",
     },
     {
-      path: "/",
+      path: "/dishes",
+      display: "Dishes",
+    },
+    {
+      path: "/services",
       display: "Services",
     },
     {
-      path: "/",
-      display: "Dishes",
+      path: "/about-us",
+      display: "About us",
     },
   ];
 
@@ -47,13 +69,22 @@ function Header() {
     },
   }));
 
-
   const NavBarLogo = styled("img")(({ theme }) => ({
     cursor: "pointer",
     [theme.breakpoints.down("md")]: {
       display: "none",
     },
   }));
+
+  const CustomMenuIcon = styled(MenuIcon)(({ theme }) => ({
+    cursor: "pointer",
+    display: "none",
+    marginRight: theme.spacing(2),
+    [theme.breakpoints.down("md")]: {
+      display: "block",
+    },
+  }));
+
   return (
     <>
       <Box
@@ -76,18 +107,22 @@ function Header() {
             gap: "2.5rem",
           }}
         >
-            <Box sx={{
-            display: "flex",
-            alignItems: "center",
-          }}>
-                <NavBarLogo src={logoImg} alt="" />
-            </Box>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <CustomMenuIcon  onClick={toggleDrawer("left", true)}/>
+            
+            <NavBarLogo src={logoImg} alt="logo" />
+          </Box>
           {/* set the customised component */}
           <NavBarLinksBox variant="body2">
             {
               // iterting the nav links with help of map function
               navTitles.map((item, index) => (
-                <NavBarLink>{item.display}</NavBarLink>
+                <NavBarLink key={index} variant="body2">{item.display}</NavBarLink>
               ))
             }
           </NavBarLinksBox>
@@ -108,6 +143,7 @@ function Header() {
           />
         </Box>
       </Box>
+      <TemporaryDrawer state={mobileMenu} toggleDrawer={toggleDrawer} navTitles={navTitles}/>
     </>
   );
 }
