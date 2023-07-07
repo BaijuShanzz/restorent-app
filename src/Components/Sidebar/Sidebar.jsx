@@ -11,6 +11,7 @@ import MiscellaneousServicesIcon from "@mui/icons-material/MiscellaneousServices
 import HomeIcon from "@mui/icons-material/Home";
 import ContactsIcon from "@mui/icons-material/Contacts";
 
+// passing drawe component values from props
 export default function TemporaryDrawer({state,toggleDrawer,navTitles}) {
 
 
@@ -21,10 +22,13 @@ export default function TemporaryDrawer({state,toggleDrawer,navTitles}) {
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
+      {/* navigation tils and icons component */}
       <List>
+        {/* mapping each icons and names one by one */}
         {navTitles.map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
+              
               <ListItemIcon>
                 {index === 0 && <HomeIcon/>}
                 {index === 1 && <FeaturedPlayListIcon/>}
@@ -40,6 +44,7 @@ export default function TemporaryDrawer({state,toggleDrawer,navTitles}) {
   );
 
   return (
+    // drawe component
     <div>
       {['left'].map((anchor) => (
         <React.Fragment key={anchor}>

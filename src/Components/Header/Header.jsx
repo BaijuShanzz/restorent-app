@@ -7,17 +7,17 @@ import { styled } from "@mui/system";
 import TemporaryDrawer from "../Sidebar/Sidebar";
 import CustomButton from "../CustomButton/CustomButton";
 import logoImg from "../../assets/logo.png";
-
 import MenuIcon from "@mui/icons-material/Menu";
 
 
 
 function Header() {
-  
+  //  creating a state for drawer working open and close
   const [mobileMenu, setMobileMenu] = useState({
     left: false,
   });
 
+  // creating a function for functionality for drawer component
   const toggleDrawer = (anchor, open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;
@@ -59,6 +59,7 @@ function Header() {
     },
   }));
 
+  // create a customized componet for navigation links
   const NavBarLink = styled(Typography)(() => ({
     fontSize: "15px",
     color: "#4F5361",
@@ -69,6 +70,7 @@ function Header() {
     },
   }));
 
+  // creating customized component for logo
   const NavBarLogo = styled("img")(({ theme }) => ({
     cursor: "pointer",
     [theme.breakpoints.down("md")]: {
@@ -76,6 +78,7 @@ function Header() {
     },
   }));
 
+  // create a customized component for  navigation menu bar for mobile devices
   const CustomMenuIcon = styled(MenuIcon)(({ theme }) => ({
     cursor: "pointer",
     display: "none",
@@ -143,6 +146,7 @@ function Header() {
           />
         </Box>
       </Box>
+      {/* importing the drawe component */}
       <TemporaryDrawer state={mobileMenu} toggleDrawer={toggleDrawer} navTitles={navTitles}/>
     </>
   );

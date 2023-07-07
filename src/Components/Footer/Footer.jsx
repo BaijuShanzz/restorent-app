@@ -1,13 +1,17 @@
 import React from 'react'
+
+// mui buid in components importing
 import {Typography} from "@mui/material";
 import { styled} from '@mui/system';
 import { Box,Container } from '@mui/system';
 
+// importing icons from assets
 import fbIcon from "../../assets/facebook.png";
 import twitterIcon from "../../assets/twitter.png";
 import instagraminIcon from "../../assets/instagram.png";
 
 function Footer() {
+    // adding customized styles on mui Container
     const CustomContainer = styled(Container)(({theme})=>({
         display: "flex",
         justifyContent: "space-around",
@@ -18,6 +22,7 @@ function Footer() {
         },
     }));
 
+    // customizing sapn element with styles
     const FooterLink = styled("span")(({theme})=>({
         fontSize : "16px",
         color : "#000066",
@@ -28,6 +33,7 @@ function Footer() {
         }
     }));
 
+    // creating customized componet for icons 
     const IconBox = styled(Box)(({theme})=>({
         display: "flex",
         alignItems: "center",

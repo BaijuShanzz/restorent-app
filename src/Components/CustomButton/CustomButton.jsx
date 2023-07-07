@@ -8,6 +8,7 @@ const CustomButton = ({
     guideBtn,
     getStartedBtn,
 }) =>{
+    // customied style on mui button
     const CustomButton = styled(Button)(({theme})=>({
         backgroundColor: backgroundColor,
         color: color,
@@ -24,6 +25,7 @@ const CustomButton = ({
             color: backgroundColor,
             borderColor: backgroundColor,
         },
+        // adding mobile view breakpoints
         [theme.breakpoints.down("md")]:{
             margin: (welcomeBtn || getStartedBtn) && theme.spacing(0, "auto", 3,"auto"),
             width: (welcomeBtn || getStartedBtn) && "90%",

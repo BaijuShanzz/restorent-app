@@ -6,6 +6,7 @@ import welcome from "../../../assets/welcome.png";
 import React from 'react'
 
 function Welcome() {
+    // creating a styled component for hero component
     const CustomBox = styled(Box)(({theme})=>({
         display: "flex",
         justifyContent: "center",
@@ -18,6 +19,7 @@ function Welcome() {
         }
     }));
 
+    // creating custom styled component for paragram/heading
     const Title = styled((Typography))(({theme})=>({
         fontsize: "64px",
         color: "#fff",
