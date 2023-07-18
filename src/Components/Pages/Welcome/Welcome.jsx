@@ -43,7 +43,7 @@ function Welcome() {
                     }}>
                         Welcome to Techflix Restorent
                     </Typography>
-                    <Title variant="h1" sx={{fontSize: "18px", color: "#546473" , my:4}}>
+                    <Title variant="h1" sx={{fontSize: "38px", color: "white" , my:4}}>
                         Discover a place where you'll love to Eat
                     </Title>
                     <Typography variant="body2" sx={{fontSize: "18px", color: "#5A6473", my:4}}>

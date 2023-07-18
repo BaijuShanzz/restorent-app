@@ -8,10 +8,12 @@ import TemporaryDrawer from "../Sidebar/Sidebar";
 import CustomButton from "../CustomButton/CustomButton";
 import logoImg from "../../assets/logo.png";
 import MenuIcon from "@mui/icons-material/Menu";
-
+import {useNavigate} from "react-router-dom";
 
 
 function Header() {
+
+  const navigate = useNavigate();
   //  creating a state for drawer working open and close
   const [mobileMenu, setMobileMenu] = useState({
     left: false,
@@ -125,7 +127,7 @@ function Header() {
             {
               // iterting the nav links with help of map function
               navTitles.map((item, index) => (
-                <NavBarLink key={index} variant="body2">{item.display}</NavBarLink>
+                <NavBarLink key={index} variant="body2" onClick={()=>navigate(item.path)}>{item.display}</NavBarLink>
               ))
             }
           </NavBarLinksBox>
